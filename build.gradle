@@ -1,0 +1,12 @@
+apply plugin: 'java'
+
+sourceCompatibility = 1.6
+version = '2.5'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile "com.googlecode.json-simple:json-simple:1.1.1"
+}
