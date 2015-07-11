@@ -93,7 +93,7 @@ public enum RMCChatColor {
      * Resets all previous chat colors or formats.
      */
     RESET('r');
-    
+
     /**
      * The special character which prefixes all chat color codes. Use this if
      * you need to dynamically convert color codes from your custom format.
@@ -105,7 +105,7 @@ public enum RMCChatColor {
     private final boolean isFormat;
     private final String toString;
     private final static Map<Character, RMCChatColor> BY_CHAR = new HashMap<Character, RMCChatColor>();
-    
+
     private RMCChatColor(char code) {
         this(code, false);
     }
@@ -115,7 +115,7 @@ public enum RMCChatColor {
         this.isFormat = isFormat;
         this.toString = new String(new char[] {COLOR_CHAR, code});
     }
-    
+
     /**
      * Gets the char value associated with this color
      *
@@ -132,7 +132,7 @@ public enum RMCChatColor {
 
     /**
      * Checks if this code is a format code as opposed to a color code.
-     * 
+     *
      * @return whether this RMCChatColor is a format code
      */
     public boolean isFormat() {
@@ -141,7 +141,7 @@ public enum RMCChatColor {
 
     /**
      * Checks if this code is a color code as opposed to a format code.
-     * 
+     *
      * @return whether this RMCChatColor is a color code
      */
     public boolean isColor() {

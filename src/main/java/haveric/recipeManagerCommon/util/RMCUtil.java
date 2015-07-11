@@ -6,8 +6,6 @@ import java.text.NumberFormat;
 import java.util.Collection;
 import java.util.Set;
 
-
-
 public class RMCUtil {
     public static <T> T parseEnum(String name, T[] values) {
         if (name != null && !name.isEmpty()) {
@@ -26,11 +24,11 @@ public class RMCUtil {
 
         return null;
     }
-    
+
     public static String parseAliasName(String name) {
         return name.replaceAll("[\\s\\W_]+", "").trim().toLowerCase();
     }
-    
+
     public static String removeExtensions(String value, Set<String> extensions) {
         int i = value.lastIndexOf('.');
 
@@ -40,11 +38,11 @@ public class RMCUtil {
 
         return value;
     }
-    
+
     public static String printNumber(Number number) {
         return NumberFormat.getNumberInstance().format(number);
     }
-    
+
     public static String replaceVariables(String msg, Object... variables) {
         if (variables != null) {
             int variablesLength = variables.length;
@@ -63,7 +61,7 @@ public class RMCUtil {
 
         return msg;
     }
-    
+
     public static String collectionToString(Collection<?> collection) {
         if (collection.isEmpty()) {
             return "";
@@ -84,7 +82,7 @@ public class RMCUtil {
 
         return s.toString();
     }
-    
+
     public static String hideString(String string) {
         char[] data = new char[string.length() * 2];
 
