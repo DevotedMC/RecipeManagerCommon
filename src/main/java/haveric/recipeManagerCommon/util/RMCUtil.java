@@ -101,4 +101,28 @@ public class RMCUtil {
     public static String unhideString(String string) {
         return string.replace(String.valueOf(RMCChatColor.COLOR_CHAR), "");
     }
+
+    public static String parseColors(String message, boolean removeColors) {
+        String parsedColors = null;
+
+        if (message != null) {
+            for (RMCChatColor color : RMCChatColor.values()) {
+                String colorString = "";
+
+                if (!removeColors) {
+                    colorString = color.toString();
+                }
+
+                message = message.replaceAll("(?i)<" + color.name() + ">", colorString);
+            }
+
+            if (removeColors) {
+                parsedColors = RMCChatColor.stripColor(message);
+            } else {
+                parsedColors = RMCChatColor.translateAlternateColorCodes('&', message);
+            }
+        }
+
+        return parsedColors;
+    }
 }
