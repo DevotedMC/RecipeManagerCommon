@@ -104,13 +104,13 @@ public enum RMCChatColor {
     private final char code;
     private final boolean isFormat;
     private final String toString;
-    private final static Map<Character, RMCChatColor> BY_CHAR = new HashMap<Character, RMCChatColor>();
+    private static final Map<Character, RMCChatColor> BY_CHAR = new HashMap<Character, RMCChatColor>();
 
-    private RMCChatColor(char code) {
+    RMCChatColor(char code) {
         this(code, false);
     }
 
-    private RMCChatColor(char code, boolean isFormat) {
+    RMCChatColor(char code, boolean isFormat) {
         this.code = code;
         this.isFormat = isFormat;
         this.toString = new String(new char[] {COLOR_CHAR, code});
@@ -186,9 +186,9 @@ public enum RMCChatColor {
     public static String translateAlternateColorCodes(char altColorChar, String textToTranslate) {
         char[] b = textToTranslate.toCharArray();
         for (int i = 0; i < b.length - 1; i++) {
-            if (b[i] == altColorChar && "0123456789AaBbCcDdEeFfKkLlMmNnOoRr".indexOf(b[i+1]) > -1) {
+            if (b[i] == altColorChar && "0123456789AaBbCcDdEeFfKkLlMmNnOoRr".indexOf(b[i + 1]) > -1) {
                 b[i] = RMCChatColor.COLOR_CHAR;
-                b[i+1] = Character.toLowerCase(b[i+1]);
+                b[i + 1] = Character.toLowerCase(b[i + 1]);
             }
         }
         return new String(b);

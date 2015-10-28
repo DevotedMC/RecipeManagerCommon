@@ -12,7 +12,7 @@ public class RMCRecipeInfo {
 
         private String name;
 
-        private RecipeOwner(String newName) {
+        RecipeOwner(String newName) {
             name = newName;
         }
 

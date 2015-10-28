@@ -12,7 +12,7 @@ public enum RMCRecipeType {
 
     private final String directive;
 
-    private RMCRecipeType(String newDirective) {
+    RMCRecipeType(String newDirective) {
         directive = newDirective;
     }
 
