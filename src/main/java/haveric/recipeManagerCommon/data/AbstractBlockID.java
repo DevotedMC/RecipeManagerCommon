@@ -2,8 +2,6 @@ package haveric.recipeManagerCommon.data;
 
 import java.util.UUID;
 
-import org.apache.commons.lang3.Validate;
-
 public class AbstractBlockID {
     private transient int hash;
 
@@ -13,30 +11,6 @@ public class AbstractBlockID {
     protected int z;
 
     public AbstractBlockID() { }
-    /**
-     * @param id
-     * @param coords
-     * @throws IllegalArgumentException
-     *             if coordinate string isn't valid or id is null
-     */
-    public AbstractBlockID(UUID id, String coords) {
-        Validate.notNull(id, "id argument must not be null!");
-        Validate.notNull(coords, "coords argument must not be null!");
-
-        wid = id;
-
-        try {
-            String[] s = coords.split(",", 3);
-
-            x = Integer.parseInt(s[0]);
-            y = Integer.parseInt(s[1]);
-            z = Integer.parseInt(s[2]);
-        } catch (Throwable e) {
-            throw new IllegalArgumentException("Coords argument must have 3 numbers separated by commas!");
-        }
-
-        buildHash();
-    }
 
     protected void buildHash() {
         hash = (wid.toString() + ":" + x + ":" + y + ":" + z + ":").hashCode();

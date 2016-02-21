@@ -6,8 +6,6 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
-import com.google.common.collect.ImmutableList;
-
 public abstract class AbstractRecipeBook {
     private String id;
     private String title;
@@ -144,11 +142,13 @@ public abstract class AbstractRecipeBook {
         return volumes.size() - 1;
     }
 
-    /**
-     * @return immutable list of volumes
-     */
     public List<Set<String>> getVolumes() {
-        return ImmutableList.copyOf(volumes);
+        List<Set<String>> copy  = new ArrayList<Set<String>>();
+        for (Set<String> set : volumes) {
+            copy.add(new LinkedHashSet<String>(set));
+        }
+
+        return copy;
     }
 
     public Set<String> getVolumeRecipes(int volume) {
