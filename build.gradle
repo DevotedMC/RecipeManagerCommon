@@ -7,6 +7,17 @@ repositories {
     mavenCentral()
 }
 
-dependencies {
+configurations {
+    providedCompile
+}
 
+sourceSets {
+    main.compileClasspath += configurations.providedCompile
+    test.compileClasspath += configurations.providedCompile
+    test.runtimeClasspath += configurations.providedCompile
+}
+
+dependencies {
+    providedCompile "org.apache.commons:commons-lang3:3.3.2"
+    providedCompile "com.google.collections:google-collections:1.0"
 }
