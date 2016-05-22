@@ -2,7 +2,7 @@ package haveric.recipeManagerCommon.recipes;
 
 public class RMCRecipeInfo {
     public enum RecipeStatus {
-        OVERRIDDEN, REMOVED;
+        OVERRIDDEN, REMOVED
     }
 
     public enum RecipeOwner {
