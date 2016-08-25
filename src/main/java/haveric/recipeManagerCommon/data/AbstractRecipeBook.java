@@ -152,7 +152,7 @@ public abstract class AbstractRecipeBook {
     }
 
     public Set<String> getVolumeRecipes(int volume) {
-        volume = Math.min(Math.max(volume, 1), getVolumesNum());
+        volume = Math.min(Math.max(volume, 1), getVolumesNum() - 1);
 
         return volumes.get(volume);
     }
